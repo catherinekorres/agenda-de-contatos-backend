@@ -7,6 +7,23 @@ module.exports = {
 
     return res.json(users);
   },
+  
+  async login(req, res) {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({
+      where: {
+        email,
+        password
+      },
+    });
+
+    if (!user) {
+      return res.status(400).json({ error: "Login information incorrect" });
+    }
+
+    return res.status(200).json();
+  },
 
   async show(req, res) {
     const { user_id } = req.params;

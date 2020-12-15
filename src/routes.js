@@ -10,6 +10,7 @@ const routes = express.Router();
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
+routes.post('/users/login', UserController.login);
 routes.get('/users/:user_id', UserController.show);
 routes.put('/users/:user_id', UserController.update);
 
