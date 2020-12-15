@@ -7,7 +7,7 @@ module.exports = {
 
     return res.json(users);
   },
-  
+
   async login(req, res) {
     const { email, password } = req.body;
 
@@ -22,7 +22,7 @@ module.exports = {
       return res.status(400).json({ error: "Login information incorrect" });
     }
 
-    return res.status(200).json();
+    return res.status(200).json(user.id);
   },
 
   async show(req, res) {
